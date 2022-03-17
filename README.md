@@ -1,1 +1,1 @@
-# StuPlan
+# StuPlan - An Android Application
