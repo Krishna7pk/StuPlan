@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
    <item
             android:id="@+id/tasks"
-            android:title="Tasks"
-            android:icon="@drawable/ic_settings"/>
+            android:title="@string/tasks"
+            android:icon="@drawable/ic_delete"/>
         <item
             android:id="@+id/completed"
-            android:title="Completed"
-            android:icon="@drawable/ic_settings"/>
+            android:title="@string/completed"
+            android:icon="@drawable/ic_edit"/>
 
     <item
         android:id="@+id/courses"
-        android:title="Courses"
-        android:icon="@drawable/ic_settings"/>
+        android:title="@string/courses"
+        android:icon="@drawable/ic_add"/>
         <item
             android:id="@+id/settings"
-            android:title="Settings"
+            android:title="@string/settings"
             android:icon="@drawable/ic_settings"/>
 </menu>
