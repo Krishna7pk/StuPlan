@@ -1,8 +1,9 @@
-package com.example.stuplan
+package com.example.stuplan.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.stuplan.R
 import com.example.stuplan.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

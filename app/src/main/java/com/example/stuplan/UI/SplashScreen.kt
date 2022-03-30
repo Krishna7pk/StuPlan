@@ -1,7 +1,6 @@
-package com.example.stuplan
+package com.example.stuplan.UI
 
 import android.content.Intent
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler

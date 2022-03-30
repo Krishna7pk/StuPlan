@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="40dp">
+    android:paddingBottom="40dp"
+    android:background="@drawable/dialog_drawable">
 
     <TextView
         android:id="@+id/tv_pl_add_course_1"
@@ -66,7 +67,7 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_add_add_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,16 +75,16 @@
         android:layout_marginTop="30dp"
         android:text="Add"
         android:textAllCaps="false"
-        android:textStyle="bold"
         app:cornerRadius="18dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary_color"
         android:drawableLeft="@drawable/ic_add"
-        android:drawableTint="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/btn_cancel_add_course"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lin_layout_add_course" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_cancel_add_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,10 +92,10 @@
         android:layout_marginTop="30dp"
         android:text="Cancel"
         android:textAllCaps="false"
-        android:textStyle="bold"
         app:cornerRadius="18dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="@color/red"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_add_add_course"

@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/dialog_drawable.xml" value="0.1225" />
         <entry key="app/src/main/res/drawable/grey_border.xml" value="0.165" />
+        <entry key="app/src/main/res/layout-v23/add_course_ui.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/add_course.xml" value="0.25" />

@@ -1,10 +1,11 @@
-package com.example.stuplan
+package com.example.stuplan.UI
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.stuplan.R
 import com.example.stuplan.databinding.FragmentCoursesBinding
 
 
@@ -33,6 +34,8 @@ class CoursesFragment : Fragment() {
         binding.toolbarCourses.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.add_course_menu_item -> {
+                    val addCourseBottmSheet = AddCourseFragment()
+                    addCourseBottmSheet.show(childFragmentManager,"")
                     true
                 }
                 R.id.search_course_menu_item -> {

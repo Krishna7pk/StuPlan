@@ -1,4 +1,4 @@
-package com.example.stuplan
+package com.example.stuplan.UI
 
 import android.os.Bundle
 import android.view.*
