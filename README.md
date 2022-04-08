@@ -1,1 +1,1 @@
-# StuPlan - An Android Application
+# StuPlan - An iOS Application
