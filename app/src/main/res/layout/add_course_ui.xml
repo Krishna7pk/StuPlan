@@ -47,15 +47,15 @@
             android:layout_weight="0.3"
             android:background="@color/primary_color"
             android:gravity="center"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
             android:text="Name"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:maxLines="1"/>
 
         <EditText
+            android:id="@+id/et_add_course"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
@@ -63,13 +63,15 @@
             android:hint="Name of Course"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:inputType="textCapSentences"
+            />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_add_add_course"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
@@ -86,7 +88,7 @@
 
     <Button
         android:id="@+id/btn_cancel_add_course"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"

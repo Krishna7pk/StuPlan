@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/primary_color</item>
 
     </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/alertdialog_tint_background</item>
+    </style>
+
 </resources>

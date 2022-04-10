@@ -46,8 +46,6 @@
             android:layout_weight="0.3"
             android:background="@color/primary_color"
             android:gravity="center"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
             android:text="Name"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -63,7 +61,8 @@
             android:hint="Name of Task"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:inputType="textCapSentences"/>
 
     </LinearLayout>
 
@@ -84,27 +83,22 @@
             android:layout_weight="0.3"
             android:background="@color/primary_color"
             android:gravity="center"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
             android:text="Course"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
-        <TextView
-            android:id="@+id/et_course_of_task_add_task"
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_course_add_task"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:background="@drawable/grey_border"
             android:hint="Select Course"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:layout_gravity="center"
             android:gravity="center_vertical"
-            android:textColor="@color/black"
-            app:drawableRightCompat="@drawable/ic_arrow_drop_down"
             app:drawableTint="@color/grey_medium" />
 
     </LinearLayout>
@@ -126,15 +120,13 @@
             android:layout_weight="0.3"
             android:background="@color/primary_color"
             android:gravity="center"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
             android:text="Due Date"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
-        <EditText
+        <TextView
             android:id="@+id/et_due_date_of_task_add_task"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -143,6 +135,8 @@
             android:hint="Fri 18 Mar, 2022"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
             android:textColor="@color/black"/>
 
     </LinearLayout>
@@ -164,8 +158,6 @@
             android:layout_weight="0.3"
             android:background="@color/primary_color"
             android:gravity="center"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
             android:text="Notes"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -181,13 +173,14 @@
             android:hint="Notes"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:inputType="textCapSentences"/>
 
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_add_task"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
@@ -204,7 +197,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_cancel_add_task"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"

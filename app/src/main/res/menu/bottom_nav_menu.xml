@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-   <item
-            android:id="@+id/tasks"
-            android:title="@string/tasks"
-            android:icon="@drawable/ic_delete"/>
-        <item
-            android:id="@+id/completed"
-            android:title="@string/completed"
-            android:icon="@drawable/ic_edit"/>
+    <item
+        android:id="@+id/tasks"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/tasks" />
+    <item
+        android:id="@+id/completed"
+        android:icon="@drawable/ic_edit"
+        android:title="@string/completed" />
 
     <item
         android:id="@+id/courses"
-        android:title="@string/courses"
-        android:icon="@drawable/ic_add"/>
-        <item
-            android:id="@+id/settings"
-            android:title="@string/settings"
-            android:icon="@drawable/ic_settings"/>
+        android:icon="@drawable/ic_add"
+        android:title="@string/courses" />
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
 </menu>

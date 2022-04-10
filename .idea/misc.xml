@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/alertdialog_tint_background.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/alertdialog_tint_background.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/bottm_nav_selector.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/dialog_drawable.xml" value="0.1225" />
         <entry key="app/src/main/res/drawable/grey_border.xml" value="0.165" />
         <entry key="app/src/main/res/layout-v23/add_course_ui.xml" value="0.25" />
@@ -12,12 +15,12 @@
         <entry key="app/src/main/res/layout/add_course_ui.xml" value="0.25" />
         <entry key="app/src/main/res/layout/add_task_ui.xml" value="0.2539154052734375" />
         <entry key="app/src/main/res/layout/completed_tasks_rv_item.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/courses_rv_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/courses_rv_item.xml" value="0.20554199218750002" />
         <entry key="app/src/main/res/layout/fragment_completed.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_courses.xml" value="0.23242645263671874" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/tasks_rv_item.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.23680725097656252" />
+        <entry key="app/src/main/res/layout/tasks_rv_item.xml" value="0.20905975341796873" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="app/src/main/res/menu/course_frag_menu.xml" value="0.25" />
       </map>
