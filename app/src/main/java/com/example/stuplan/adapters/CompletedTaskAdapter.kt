@@ -6,9 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stuplan.R
+import com.example.stuplan.model.CourseModel
 import com.example.stuplan.model.TaskModel
 
-class CompletedTaskAdapter(private val completedTasks : ArrayList<TaskModel>)
+class CompletedTaskAdapter(
+    private val completedTasks: ArrayList<TaskModel>,
+    private val courseList: ArrayList<CourseModel>
+)
     : RecyclerView.Adapter<CompletedTaskViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompletedTaskViewHolder {
         return CompletedTaskViewHolder(
@@ -20,8 +24,15 @@ class CompletedTaskAdapter(private val completedTasks : ArrayList<TaskModel>)
     override fun onBindViewHolder(holder: CompletedTaskViewHolder, position: Int) {
         val completedTask = completedTasks.get(position)
         holder.titleTV.text=completedTask.taskName
-        holder.courseTV.text=completedTask.courseId.toString()
-        holder.dateTV.text=completedTask.duedate
+
+        val courseHashmap=HashMap<Long, String>()
+        for (i in courseList){
+            courseHashmap.put(i.id!!, i.courseName)
+        }
+        holder.courseTV.text = courseHashmap.getValue(completedTask.courseId)
+
+        val dateArray = completedTask.duedate.split(",")
+        holder.dateTV.text=dateArray[1]+", "+ dateArray[3]
     }
 
     override fun getItemCount(): Int {

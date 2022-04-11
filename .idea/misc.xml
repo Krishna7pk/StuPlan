@@ -4,10 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/alertdialog_tint_background.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable-v24/botton_nav_background.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/alertdialog_tint_background.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/bottm_nav_selector.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/botton_nav_background.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/dialog_drawable.xml" value="0.1225" />
         <entry key="app/src/main/res/drawable/grey_border.xml" value="0.165" />
+        <entry key="app/src/main/res/drawable/ic_courses.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.139" />
         <entry key="app/src/main/res/layout-v23/add_course_ui.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />

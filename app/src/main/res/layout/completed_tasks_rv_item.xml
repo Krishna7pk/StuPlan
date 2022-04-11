@@ -10,11 +10,12 @@
         android:id="@+id/iv_pl_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_delete"
+        android:src="@drawable/ic_completed_task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        app:tint="@color/primary_color" />
 
     <TextView
         android:id="@+id/tv_hw_name_rv_completed_item"

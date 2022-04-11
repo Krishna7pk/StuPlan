@@ -7,14 +7,15 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stuplan.R
+import com.example.stuplan.model.CourseModel
 import com.example.stuplan.model.TaskModel
 
 class TaskAdapter(
-    private val taskList : ArrayList<TaskModel>
-    , viewClickListener : TaskRvClickListener) : RecyclerView.Adapter<TaskViewHolder>() {
+    private val taskList: ArrayList<TaskModel>
+    , private val courseList: ArrayList<CourseModel>, viewClickListener: TaskRvClickListener
+) : RecyclerView.Adapter<TaskViewHolder>() {
 
     private val listener: TaskRvClickListener = viewClickListener
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         return TaskViewHolder(
@@ -26,8 +27,18 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = taskList.get(position)
         holder.assignmentNameTv.text = task.taskName
-        holder.courseNameTvTaskRV.text = task.taskName
-        holder.dueDateTv.text = task.duedate
+
+        val courseHashmap=HashMap<Long, String>()
+
+        for (i in courseList){
+            courseHashmap.put(i.id!!, i.courseName)
+        }
+
+        holder.courseNameTvTaskRV.text = courseHashmap.getValue(task.courseId)
+
+        val dateArray = task.duedate.split(",")
+
+        holder.dueDateTv.text = dateArray[1]+", "+ dateArray[3]
 
         holder.completedCheckbox.isChecked = task.completed==1
 

@@ -1,5 +1,7 @@
 package com.example.stuplan.UI
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,10 @@ import com.example.stuplan.databinding.FragmentTasksBinding
 import com.example.stuplan.model.CourseModel
 import com.example.stuplan.model.TaskModel
 import com.example.stuplan.sqlite.DatabaseHelper
+import java.text.DateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class TasksFragment : Fragment() {
@@ -26,12 +32,6 @@ class TasksFragment : Fragment() {
     private lateinit var taskToAddInDatabase : TaskModel
     private lateinit var selectedObject : CourseModel
     var dateAndTimeString = ""
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +47,10 @@ class TasksFragment : Fragment() {
         dbHelper = DatabaseHelper(requireContext())
         courseList = dbHelper.getAllCourse()
         taskList = dbHelper.getAllTask()
+
+        if (taskList.isNullOrEmpty()){
+            binding.tvNoTask.visibility=View.VISIBLE
+        }
 
         binding.toolbarCourses.inflateMenu(R.menu.course_frag_menu)
 
@@ -67,7 +71,7 @@ class TasksFragment : Fragment() {
             it.layoutManager= LinearLayoutManager(requireContext()
                 , LinearLayoutManager.VERTICAL, false)
             it.setHasFixedSize(true)
-            it.adapter= TaskAdapter(taskList, object : TaskRvClickListener{
+            it.adapter= TaskAdapter(taskList,courseList, object : TaskRvClickListener{
                 override fun onCompletedClick(task: TaskModel) {
                     dbHelper.setTaskCompleted(task)
                 }
@@ -92,8 +96,74 @@ class TasksFragment : Fragment() {
         val cancelButton = dialogView.findViewById<Button>(R.id.btn_cancel_add_task)
         val courseSpinner = dialogView.findViewById<Spinner>(R.id.spinner_course_add_task)
 
-        //dateAndTimeTv.
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
 
+        dateAndTimeTv.setOnClickListener {
+            val dialog = DatePickerDialog(requireContext(), object : DatePickerDialog.OnDateSetListener{
+                override fun onDateSet(datePicker: DatePicker?, y: Int, m: Int, d: Int) {
+                    val cal = Calendar.getInstance()
+                    cal.set(Calendar.YEAR, y)
+                    cal.set(Calendar.MONTH,m)
+                    cal.set(Calendar.DAY_OF_MONTH,d)
+
+                    dateAndTimeString = DateFormat.getDateInstance(DateFormat.FULL).format(cal.time)
+
+                    val timePicker = TimePickerDialog(
+                        // pass the Context
+                        requireContext(),
+                        object : TimePickerDialog.OnTimeSetListener{
+                            override fun onTimeSet(p0: TimePicker?, hourOfDay: Int, minute: Int) {
+
+                                val formattedTime: String = when {
+                                    hourOfDay == 0 -> {
+                                        if (minute < 10) {
+                                            "${hourOfDay + 12}:0${minute} am"
+                                        } else {
+                                            "${hourOfDay + 12}:${minute} am"
+                                        }
+                                    }
+                                    hourOfDay > 12 -> {
+                                        if (minute < 10) {
+                                            "${hourOfDay - 12}:0${minute} pm"
+                                        } else {
+                                            "${hourOfDay - 12}:${minute} pm"
+                                        }
+                                    }
+                                    hourOfDay == 12 -> {
+                                        if (minute < 10) {
+                                            "${hourOfDay}:0${minute} pm"
+                                        } else {
+                                            "${hourOfDay}:${minute} pm"
+                                        }
+                                    }
+                                    else -> {
+                                        if (minute < 10) {
+                                            "${hourOfDay}:${minute} am"
+                                        } else {
+                                            "${hourOfDay}:${minute} am"
+                                        }
+                                    }
+                                }
+                                dateAndTimeString = dateAndTimeString +", " +formattedTime
+                                dateAndTimeTv.text = dateAndTimeString
+                            } },
+                        hour,
+                        minute,
+                        false
+                    )
+
+                    // then after building the timepicker
+                    // dialog show the dialog to user
+                    timePicker.show()
+                }
+            }, year, month, day)
+            dialog.show()
+        }
 
         val adapter = ArrayAdapter<CourseModel>(
             requireContext(),
@@ -115,19 +185,12 @@ class TasksFragment : Fragment() {
 
                 selectedObject = courseSpinner.selectedItem as CourseModel
 
-                Toast.makeText(
-                    requireContext(),
-                    "ID: ${selectedObject.id} Name: ${selectedObject.courseName}",
-                    Toast.LENGTH_SHORT
-                ).show()
-
             }
         }
         addButon.setOnClickListener {
             val taskName = taskNameEt.text.toString()
             val taskCourseId = selectedObject.id
             val taskNote = taskNotesEt.text.toString()
-            dateAndTimeString="jpt date"
 
             if (taskName.isEmpty()){
                 Toast.makeText(requireContext(), "Task name cannot be empty", Toast.LENGTH_SHORT).show()
@@ -139,6 +202,10 @@ class TasksFragment : Fragment() {
                 }
 
                 val status = task?.let { it1 -> dbHelper.insertTask(it1) }
+                if (status!! >-1){
+                    binding.tvNoTask.visibility=View.GONE
+
+                }
                 task?.let { it1 -> taskList.add(it1) }
                 binding.rvTask.adapter?.notifyDataSetChanged()
             }
