@@ -132,12 +132,14 @@
             android:layout_height="match_parent"
             android:layout_weight="0.7"
             android:background="@drawable/grey_border"
-            android:hint="Fri 18 Mar, 2022"
+            android:hint="Enter due date"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:layout_gravity="center"
             android:gravity="center_vertical"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:drawableRight="@drawable/ic_calendar"
+            android:drawableTint="@color/primary_color"/>
 
     </LinearLayout>
 

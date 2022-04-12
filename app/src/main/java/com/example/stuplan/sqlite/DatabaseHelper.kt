@@ -211,9 +211,6 @@ class DatabaseHelper(context: Context)
         db.close()
 
         return taskList
-
-
-
     }
 
 
@@ -229,30 +226,14 @@ class DatabaseHelper(context: Context)
         db.close()
     }
 
-/*
-    fun updateNote(note: NoteModel): Int{
+    fun clearAllData(){
         val db = this.writableDatabase
+        db.delete(CourseContract.CourseEntry.TABLE_NAME, null, null)
+        db.delete(TaskContract.TaskEntry.TABLE_NAME, null, null)
+        db.close()
 
-        val values = ContentValues().apply {
-            put(NotesContract.NotesEntry.COLUMN_NAME_TITLE, note.noteTitle)
-            put(NotesContract.NotesEntry.COLUMN_NAME_DESCRIPTION, note.noteDescription)
-        }
-
-        //val query = db.update(NotesContract.NotesEntry.TABLE_NAME, values, "id="+note.id,null)
-
-        // Which row to update, based on the id
-        val selection = "${BaseColumns._ID} = ${note.id}"
-        val selectionArgs = arrayOf(note.id)
-        val count = db.update(
-            NotesContract.NotesEntry.TABLE_NAME,
-            values,
-            selection,
-            null)
-
-        return count
 
     }
-*/
 
     companion object {
         // If you change the database schema, you must increment the database version.
