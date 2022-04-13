@@ -10,7 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.stuplan.R
 import com.example.stuplan.adapters.CourseAdapter
 import com.example.stuplan.adapters.CourseRVClickListener
@@ -85,6 +87,8 @@ class CoursesFragment : Fragment() {
 
                 })
         }
+
+
 
 
     }

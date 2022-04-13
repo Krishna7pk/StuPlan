@@ -164,7 +164,6 @@ class DatabaseHelper(context: Context)
         }
 
         val selection = "${BaseColumns._ID} = ${task.id}"
-        val selectionArgs = arrayOf(task.id)
         val count = db.update(
             TaskContract.TaskEntry.TABLE_NAME,
             values,
@@ -233,7 +232,7 @@ class DatabaseHelper(context: Context)
     }
 
 
-    fun deleteCourse(course: CourseModel){
+    fun deleteCourse(course: CourseModel) {
         val db = this.writableDatabase
 
         // Define 'where' part of query.
@@ -242,6 +241,16 @@ class DatabaseHelper(context: Context)
         val selectionArgs = arrayOf(course.id)
         // Issue SQL statement.
         val deletedRows = db.delete(CourseContract.CourseEntry.TABLE_NAME, selection, null)
+        db.close()
+    }
+
+    fun deleteCompletedTask(task: TaskModel){
+        val db = this.writableDatabase
+
+        // Define 'where' part of query.
+        val selection = "${BaseColumns._ID} = ${task.id}"
+        // Issue SQL statement.
+        val deletedRows = db.delete(TaskContract.TaskEntry.TABLE_NAME, selection, null)
         db.close()
     }
 

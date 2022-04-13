@@ -73,7 +73,9 @@ class TasksFragment : Fragment() {
             it.setHasFixedSize(true)
             it.adapter= TaskAdapter(taskList,courseList, object : TaskRvClickListener{
                 override fun onCompletedClick(task: TaskModel) {
-                    dbHelper.setTaskCompleted(task)
+                    println("task is : $task")
+                    val count =dbHelper.setTaskCompleted(task)
+                    println("count : $count")
                 }
 
             })
@@ -198,16 +200,17 @@ class TasksFragment : Fragment() {
                 Toast.makeText(requireContext(), "Select a valid due date", Toast.LENGTH_SHORT).show()
             } else{
                 val task = taskCourseId?.let { it1 ->
-                    TaskModel(null, taskName = taskName, taskNote= taskNote, duedate = dateAndTimeString, courseId = it1)
+                    TaskModel(null, taskName, taskNote= taskNote, duedate = dateAndTimeString, courseId = it1)
                 }
 
                 val status = task?.let { it1 -> dbHelper.insertTask(it1) }
                 if (status!! >-1){
                     binding.tvNoTask.visibility=View.GONE
-
+                    task.id=status
+                    task?.let { it1 -> taskList.add(it1) }
+                    binding.rvTask.adapter?.notifyDataSetChanged()
                 }
-                task?.let { it1 -> taskList.add(it1) }
-                binding.rvTask.adapter?.notifyDataSetChanged()
+
             }
 
             builder.dismiss()

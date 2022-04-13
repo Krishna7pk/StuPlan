@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/drawable/ic_courses.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.139" />
         <entry key="app/src/main/res/layout-v23/add_course_ui.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/about_bottom_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/add_course.xml" value="0.25" />

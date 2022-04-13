@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.stuplan.adapters.CompletedTaskAdapter
 import com.example.stuplan.databinding.FragmentCompletedBinding
 import com.example.stuplan.model.CourseModel
@@ -29,6 +32,8 @@ class CompletedFragment : Fragment() {
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dbHelper = DatabaseHelper(requireContext())
@@ -50,6 +55,36 @@ class CompletedFragment : Fragment() {
             it.adapter = CompletedTaskAdapter(taskList,courseList)
         }
 
+        val itemTouchHelper= ItemTouchHelper(simpleTouchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.rvCompleted)
+
+
+    }
+
+    val simpleTouchCallback = object : ItemTouchHelper.SimpleCallback(0,
+        ItemTouchHelper.LEFT or(ItemTouchHelper.RIGHT)){
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+            deleteClicked(taskList[viewHolder.adapterPosition])
+
+        }
+
+    }
+
+    private fun deleteClicked( task: TaskModel) {
+
+        dbHelper.deleteCompletedTask(task)
+        taskList.remove(task)
+        binding.rvCompleted.adapter?.notifyDataSetChanged()
+        Toast.makeText(requireContext(),"Task deleted!!",Toast.LENGTH_SHORT).show()
 
     }
 

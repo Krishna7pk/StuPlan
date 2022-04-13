@@ -7,4 +7,5 @@
     <string name="settings">Settings</string>
     <string name="add_course">add_course</string>
     <string name="search_course">search_course</string>
+    <string name="stuplan_description">Stuplan is a planner application.The purpose of the project is to develop an application in which users can view and add their deadlines for assignments, homework, and test. This app will help students to track their upcoming assignments and test according to their subject so that they can plan their studies well.</string>
 </resources>
