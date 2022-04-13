@@ -60,9 +60,9 @@ class TasksFragment : Fragment() {
                     addTask()
                     true
                 }
-                R.id.search_course_menu_item -> {
+                /*R.id.search_course_menu_item -> {
                     true
-                }
+                }*/
                 else -> false
             }
         }

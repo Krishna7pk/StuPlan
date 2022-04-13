@@ -61,9 +61,9 @@ class CoursesFragment : Fragment() {
                     addCourse()
                     true
                 }
-                R.id.search_course_menu_item -> {
+                /*R.id.search_course_menu_item -> {
                     true
-                }
+                }*/
                 else -> false
             }
         }
@@ -109,8 +109,53 @@ class CoursesFragment : Fragment() {
     }
 
     private fun updateClicked(course: CourseModel) {
+        val builder = AlertDialog.Builder(requireContext(), R.style.CustomAlertDialog)
+            .create()
+        val dialogView = layoutInflater.inflate(R.layout.dialog_update_course,null)
+        val updateCourseET= dialogView.findViewById<EditText>(R.id.et_update_course)
+        updateCourseET.setText(course.courseName)
+
+        val  updateButton = dialogView.findViewById<Button>(R.id.btn_update_update_course)
+        val  cancelButton = dialogView.findViewById<Button>(R.id.btn_cancel_update_course)
+
+        builder.setView(dialogView)
+
+        updateButton.setOnClickListener {
+            courseList.remove(course)
+            val updatedCourseName = updateCourseET.text.toString()
 
 
+            if (updatedCourseName.isNullOrEmpty()){
+                Toast.makeText(requireContext(),
+                    "Course name cannot be empty",Toast.LENGTH_SHORT).show()
+            } else{
+                val updateCourse = CourseModel(course.id,updatedCourseName )
+                val status=dbHelper.updateCourse(updateCourse)
+
+                if (status >-1){
+                    //success
+                    Toast.makeText(requireContext(), "Course updated successfully."
+                        , Toast.LENGTH_SHORT).show()
+                    courseList.add(updateCourse)
+                    binding.rvCourse.adapter?.notifyDataSetChanged()
+                    builder.dismiss()
+
+                } else{
+                    //failure
+                    Toast.makeText(requireContext(), "Course is not updated.", Toast.LENGTH_SHORT).show()
+                    builder.dismiss()
+
+                }
+            }
+
+        }
+
+        cancelButton.setOnClickListener {
+            builder.dismiss()
+        }
+
+        builder.setCanceledOnTouchOutside(false)
+        builder.show()
 
     }
 

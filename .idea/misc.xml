@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/layout/add_task_ui.xml" value="0.2539154052734375" />
         <entry key="app/src/main/res/layout/completed_tasks_rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/courses_rv_item.xml" value="0.20554199218750002" />
+        <entry key="app/src/main/res/layout/dialog_update_course.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_completed.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_courses.xml" value="0.23242645263671874" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.165" />

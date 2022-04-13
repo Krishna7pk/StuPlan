@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="40dp"
+    android:background="@drawable/dialog_drawable">
+
+    <TextView
+        android:id="@+id/tv_pl_update_course_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Update Course"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_pl_update_course_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@color/primary_color"
+        app:layout_constraintTop_toBottomOf="@id/tv_pl_update_course_1" />
+
+
+    <LinearLayout
+        android:id="@+id/lin_layout_update_course"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/grey_border"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/view_pl_update_course_1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="@color/primary_color"
+            android:gravity="center"
+            android:text="Name"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:maxLines="1"/>
+
+        <EditText
+            android:id="@+id/et_update_course"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:background="@drawable/grey_border"
+            android:hint="Name of Course"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/black"
+            android:inputType="textCapSentences"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_update_update_course"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:text="Update"
+        android:textAllCaps="false"
+        app:cornerRadius="18dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary_color"
+        android:drawableLeft="@drawable/ic_edit"
+        android:drawableTint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/btn_cancel_update_course"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin_layout_update_course" />
+
+    <Button
+        android:id="@+id/btn_cancel_update_course"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        app:cornerRadius="18dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_update_update_course"
+        app:layout_constraintTop_toBottomOf="@id/lin_layout_update_course" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

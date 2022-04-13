@@ -9,12 +9,12 @@
         app:showAsAction="ifRoom"
         />
 
-    <item
+  <!--  <item
         android:id="@+id/search_course_menu_item"
         android:title="@string/search_course"
         android:icon="@drawable/ic_search"
         app:showAsAction="ifRoom"
-        />
+        />-->
 
 
 </menu>

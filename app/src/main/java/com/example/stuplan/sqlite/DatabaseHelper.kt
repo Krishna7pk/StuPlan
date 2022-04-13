@@ -213,6 +213,25 @@ class DatabaseHelper(context: Context)
         return taskList
     }
 
+    fun updateCourse(course: CourseModel): Int{
+        val db = this.writableDatabase
+
+        val values = ContentValues().apply {
+            put(CourseContract.CourseEntry.COLUMN_NAME, course.courseName)
+        }
+
+        //val query = db.update(NotesContract.NotesEntry.TABLE_NAME, values, "id="+note.id,null)
+        // Which row to update, based on the id
+        val selection = "${BaseColumns._ID} = ${course.id}"
+        val count = db.update(
+            CourseContract.CourseEntry.TABLE_NAME,
+            values,
+            selection,
+            null)
+        db.close()
+        return count
+    }
+
 
     fun deleteCourse(course: CourseModel){
         val db = this.writableDatabase
